@@ -1,0 +1,22 @@
+{
+  "name": "token",
+  "version": "1.0.0",
+  "description": "",
+  "main": "app.js",
+  "directories": {
+    "test": "test"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "body-parser": "^1.19.0",
+    "eth-balance-checker": "^0.1.1",
+    "ethereumjs-tx": "^2.1.1",
+    "express": "^4.17.1",
+    "truffle-contract": "^4.0.31",
+    "web3": "^1.2.1"
+  }
+}
