@@ -79,15 +79,6 @@ contract TokenERC20 {
         return true;
     }
 
-    // function approveAndCall(address _spender, uint256 _value, bytes memory _extraData)
-    //     public
-    //     returns (bool success) {
-    //      tokenRecipient spender = tokenRecipient(_spender);
-    //     if (approve(_spender, _value)) {
-    //         spender.receiveApproval(msg.sender, _value, this, _extraData);
-    //         return true;
-    //     }
-    // }
 
     function burn(uint256 _value) public returns (bool success) {
         require(balanceOf[msg.sender] >= _value,"Value greater than the sender's balance");   // Check if the sender has enough
@@ -111,7 +102,6 @@ contract TokenERC20 {
 contract JBK is owner, TokenERC20 {
     uint256 public sellPrice;
     uint256 public buyPrice;
-    // uint256 public initialSupply = 10000000000;
      mapping (address => bool) public frozenAccount;
 /* This generates a public event on the blockchain that will notify clients */
     event FrozenFunds(address target, bool frozen);
@@ -140,8 +130,6 @@ contract JBK is owner, TokenERC20 {
     function mintToken(address target, uint256 mintedAmount) public onlyOwner{
         balanceOf[target] += mintedAmount;
         totalSupply += mintedAmount;
-        //emit Transfer(0, this, mintedAmount);
-        //emit Transfer(this, target, mintedAmount);
     }
 
     function freezeAccount(address target, bool freeze) public onlyOwner {
@@ -155,11 +143,6 @@ contract JBK is owner, TokenERC20 {
         sellPrice = newSellPrice;
         buyPrice = newBuyPrice;
     }
-
-    // function buy() payable public {
-    //     uint amount = msg.value / buyPrice;               // calculates the amount
-    //   // _transfer(this, msg.sender, amount);              // makes the transfers
-    // }
 
     function sell(uint256 amount) public {
       // address myAddress = this;
